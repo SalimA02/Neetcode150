@@ -12,3 +12,11 @@ class Solution:
 
     def search(self, nums: List[int], target: int) -> int:
         return self.binary_search(0, len(nums) - 1, nums, target)
+
+
+###### BUILT IN FUNCTION ######
+# import bisect
+# class Solution:
+#     def search(self, nums: List[int], target: int) -> int:
+#         index = bisect.bisect_left(nums, target)
+#         return index if index < len(nums) and nums[index] == target else -1
