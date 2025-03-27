@@ -19,25 +19,26 @@ class TimeMap:
                 seen = max(seen, time)
         return "" if seen == 0 else self.keyStore[key][seen][-1]
 
-# Binary Search
+# Binary Search Array 
 
-# from sortedcontainers import SortedDict
+class TimeMap:
 
-# class TimeMap:
-#     def __init__(self):
-#         self.m = defaultdict(SortedDict)
+    def __init__(self):
+        self.keyStore = {}  # key : list of [val, timestamp]
 
-#     def set(self, key: str, value: str, timestamp: int) -> None:
-#         self.m[key][timestamp] = value
+    def set(self, key: str, value: str, timestamp: int) -> None:
+        if key not in self.keyStore:
+            self.keyStore[key] = []
+        self.keyStore[key].append([value, timestamp])
 
-#     def get(self, key: str, timestamp: int) -> str:
-#         if key not in self.m:
-#             return ""
-        
-#         timestamps = self.m[key]
-#         idx = timestamps.bisect_right(timestamp) - 1
-        
-#         if idx >= 0:
-#             closest_time = timestamps.iloc[idx]
-#             return timestamps[closest_time]
-#         return ""
+    def get(self, key: str, timestamp: int) -> str:
+        res, values = "", self.keyStore.get(key, [])
+        l, r = 0, len(values) - 1
+        while l <= r:
+            m = (l + r) // 2
+            if values[m][1] <= timestamp:
+                res = values[m][0]
+                l = m + 1
+            else:
+                r = m - 1
+        return res
