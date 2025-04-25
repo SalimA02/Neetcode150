@@ -1,4 +1,4 @@
-# Without Built-In Function
+# attempt using linked list
 class LRUCache:
     def __init__(self, capacity: int):
         self.cap = capacity
