@@ -1,14 +1,11 @@
-# class Solution:
-#     def maxProfit(self, prices: List[int]) -> int:
-#         res = 0
-#         for i in range(len(prices)):
-#             buy = prices[i]
-#             for j in range(i + 1, len(prices)):
-#                 sell  = prices[j]
-#                 res = max(res, sell - buy)
-#         return res
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        maximumProfit = 0 
 
+        for i in range(len(prices)-1):
+            maximumProfit = max((max(prices[i+1:])- prices[i]), maximumProfit)
 
+        return maximumProfit
 #2P
 
 class Solution:
