@@ -1,4 +1,4 @@
-# implement optimal solution 
+# implement optimal solution (On)
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         if t == "":
