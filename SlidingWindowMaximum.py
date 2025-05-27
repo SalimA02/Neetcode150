@@ -19,5 +19,19 @@ class Solution:
 
         return output
 
-# BRUTE FORCE
+# EXAMPLE
+
+# Input: nums = [1,2,1,0,4,2,6], k = 3
+
+# Output: [2,2,4,4,6]
+
+# Explanation: 
+# Window position            Max
+# ---------------           -----
+# [1  2  1] 0  4  2  6        2
+#  1 [2  1  0] 4  2  6        2
+#  1  2 [1  0  4] 2  6        4
+#  1  2  1 [0  4  2] 6        4
+#  1  2  1  0 [4  2  6]       6
+
 
